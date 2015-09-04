@@ -9,6 +9,25 @@
     <artifactId>test-utils</artifactId>
     <version>1.9.0</version>
 
+    <packaging>jar</packaging>
+    <name>test-utils</name>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>firone</id>
+            <name>Romain Roces</name>
+            <email>romain.roces@gmail.com</email>
+        </developer>
+    </developers>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

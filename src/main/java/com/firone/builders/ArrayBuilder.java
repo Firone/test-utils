@@ -1,6 +1,6 @@
 package com.firone.builders;
 
-public class ArrayBuilder<T> {
+public class ArrayBuilder {
 
     private ArrayBuilder() {
     }

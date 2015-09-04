@@ -23,8 +23,12 @@ public class ContainsPattern extends TypeSafeMatcher<CharSequence> {
 
     @Override
     public void describeTo(Description description) {
-        description.appendText("a string ").appendText(match ? "matching" : "containing").appendText(" #")
-            .appendText(pattern.pattern()).appendText("#");
+        description
+                .appendText("a string ")
+                .appendText(match ? "matching" : "containing")
+                .appendText(" #")
+                .appendText(pattern.pattern())
+                .appendText("#");
     }
 
     @Override
@@ -38,8 +42,13 @@ public class ContainsPattern extends TypeSafeMatcher<CharSequence> {
 
     @Override
     protected void describeMismatchSafely(CharSequence item, Description mismatch) {
-        mismatch.appendValue(item).appendText(" did not ").appendText(match ? "match" : "contain").appendText(" /")
-            .appendText(pattern.pattern()).appendText("/");
+        mismatch
+                .appendValue(item)
+                .appendText(" did not ")
+                .appendText(match ? "match" : "contain")
+                .appendText(" /")
+                .appendText(pattern.pattern())
+                .appendText("/");
     }
 
     public static Matcher<CharSequence> containsPattern(String regex) {

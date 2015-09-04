@@ -11,30 +11,23 @@ public class WaitUntilMatcher {
     protected WaitUntilMatcher() {
     }
 
-    public static <T> void waitUntilObject(final T object, org.hamcrest.Matcher<? super T> matcher)
-        throws InterruptedException {
+    public static <T> void waitUntilObject(final T object, org.hamcrest.Matcher<? super T> matcher) throws InterruptedException {
         waitUntilObject(object, matcher, max(500, MILLISECONDS));
     }
 
-    public static <T> void waitUntilObject(final T object, org.hamcrest.Matcher<? super T> matcher, long duration)
-        throws InterruptedException {
+    public static <T> void waitUntilObject(final T object, org.hamcrest.Matcher<? super T> matcher, long duration) throws InterruptedException {
         waitUntil(wrapWithCallable(object), matcher, duration, freq(100, MILLISECONDS));
     }
 
-    public static <T> void waitUntil(Callable<T> callable, org.hamcrest.Matcher<? super T> matcher)
-        throws InterruptedException {
+    public static <T> void waitUntil(Callable<T> callable, org.hamcrest.Matcher<? super T> matcher) throws InterruptedException {
         waitUntil(callable, matcher, max(500, MILLISECONDS));
     }
 
-    public static <T> void waitUntil(Callable<T> callable, org.hamcrest.Matcher<? super T> matcher, long duration)
-        throws InterruptedException {
+    public static <T> void waitUntil(Callable<T> callable, org.hamcrest.Matcher<? super T> matcher, long duration) throws InterruptedException {
         waitUntil(callable, matcher, duration, freq(100, MILLISECONDS));
     }
 
-    public static <T> void waitUntil(Callable<T> callable,
-                                     org.hamcrest.Matcher<? super T> matcher,
-                                     long duration,
-                                     long frequency) throws InterruptedException {
+    public static <T> void waitUntil(Callable<T> callable, org.hamcrest.Matcher<? super T> matcher, long duration, long frequency) throws InterruptedException {
         Throwable ex = null;
         for (long timeout = duration; timeout > 0; timeout -= frequency, Thread.sleep(frequency)) {
             try {
