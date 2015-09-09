@@ -6,6 +6,9 @@ import java.util.concurrent.TimeUnit;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+/**
+ * This class was inspired by internal classes of Testatoo : https://github.com/Ovea/testatoo
+ */
 public class WaitUntilMatcher {
 
     protected WaitUntilMatcher() {
