@@ -52,6 +52,11 @@ public class WaitUntilMatcher {
     }
 
     private static <T> Callable<T> wrapWithCallable(final T object) {
-        return () -> object;
+        return new Callable<T>() {
+            @Override
+            public T call() throws Exception {
+                return object;
+            }
+        };
     }
 }

@@ -7,10 +7,7 @@ import org.junit.Test;
 
 import java.util.concurrent.Callable;
 
-import static com.firone.hamcrest.WaitUntilMatcher.freq;
-import static com.firone.hamcrest.WaitUntilMatcher.max;
-import static com.firone.hamcrest.WaitUntilMatcher.waitUntil;
-import static com.firone.hamcrest.WaitUntilMatcher.waitUntilObject;
+import static com.firone.hamcrest.WaitUntilMatcher.*;
 import static java.lang.System.currentTimeMillis;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.hamcrest.Matchers.is;
@@ -24,8 +21,12 @@ public class WaitUntilMatcherTest {
     public void setUp() throws Exception {
 
         final long startTime = currentTimeMillis();
-        callable = () -> currentTimeMillis() - startTime > 50;
-
+        callable = new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                return currentTimeMillis() - startTime > 50;
+            }
+        };
     }
 
     @Test
