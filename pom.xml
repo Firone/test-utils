@@ -7,7 +7,7 @@
 
     <groupId>com.firone</groupId>
     <artifactId>test-utils</artifactId>
-    <version>1.9.3-SNAPSHOT</version>
+    <version>1.9.3</version>
 
     <packaging>jar</packaging>
     <name>test-utils</name>
@@ -64,7 +64,18 @@
         <dependency>
             <groupId>org.kubek2k</groupId>
             <artifactId>springockito-annotations</artifactId>
-            <version>1.0.9</version>
+            <version>1.0.8</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mockito</groupId>
+                    <artifactId>mockito-all</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.kubek2k</groupId>
+            <artifactId>springockito</artifactId>
+            <version>1.0.8</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.mockito</groupId>
