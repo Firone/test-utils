@@ -16,6 +16,13 @@ public class JsonHasKeyWithValueMatcherTest {
     }
 
     @Test
+    public void can_assert_numbers_are_valid() {
+        assertThat("{" +
+                   "\"key1\":555" +
+                   "}", jsonHasKeyWithValue("key1", "555"));
+    }
+
+    @Test
     public void can_assert_multi_level_key_with_value_are_valid() {
         assertThat("{" +
                    "\"multi\":{" +

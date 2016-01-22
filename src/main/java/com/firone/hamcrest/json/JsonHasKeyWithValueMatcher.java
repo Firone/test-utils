@@ -31,7 +31,7 @@ public class JsonHasKeyWithValueMatcher extends TypeSafeMatcher<String> {
                 }
                 jsonNode = jsonNode.get(keyPart);
             }
-            return jsonNode == null ? value == null : jsonNode.textValue().equals(value);
+            return jsonNode == null ? value == null : jsonNode.asText().equals(value);
         } catch (IOException e) {
             return false;
         }
