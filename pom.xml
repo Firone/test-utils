@@ -7,7 +7,7 @@
 
     <groupId>com.firone</groupId>
     <artifactId>test-utils</artifactId>
-    <version>1.9.4</version>
+    <version>1.9.5-SNAPSHOT</version>
 
     <packaging>jar</packaging>
     <name>test-utils</name>
