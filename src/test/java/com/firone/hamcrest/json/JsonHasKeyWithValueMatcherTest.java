@@ -18,8 +18,15 @@ public class JsonHasKeyWithValueMatcherTest {
     @Test
     public void can_assert_numbers_are_valid() {
         assertThat("{" +
-                   "\"key1\":555" +
-                   "}", jsonHasKeyWithValue("key1", "555"));
+                   "\"key\":555" +
+                   "}", jsonHasKeyWithValue("key", "555"));
+    }
+
+    @Test
+    public void can_assert_value_is_null() {
+        assertThat("{" +
+                   "\"key\":null" +
+                   "}", jsonHasKeyWithValue("key", null));
     }
 
     @Test
@@ -42,6 +49,13 @@ public class JsonHasKeyWithValueMatcherTest {
                    "        \"key1\":\"value1\"," +
                    "    }" +
                    "}" +
+                   "}", jsonHasKeyWithValue("multi.unknown.sub.level.key1", "value1"));
+    }
+
+    @Test(expected = AssertionError.class)
+    public void fails_when_multi_level_key_is_invalid() {
+        assertThat("{" +
+                   "\"multi\":null" +
                    "}", jsonHasKeyWithValue("multi.unknown.sub.level.key1", "value1"));
     }
 

@@ -21,17 +21,24 @@ public class JsonHasKeyWithValueMatcher extends TypeSafeMatcher<String> {
 
     @Override
     protected boolean matchesSafely(String jsonString) {
+
         try {
             JsonNode jsonNode = objectMapper.readTree(jsonString);
+            if (jsonNode == null) {
+                return false;
+            }
+
             String[] keyParts = key.split("\\.");
 
             for (String keyPart : keyParts) {
+                jsonNode = jsonNode.get(keyPart);
                 if (jsonNode == null) {
                     return false;
                 }
-                jsonNode = jsonNode.get(keyPart);
             }
-            return jsonNode == null ? value == null : jsonNode.asText().equals(value);
+
+            return jsonNode.isNull() ? value == null : jsonNode.asText().equals(value);
+
         } catch (IOException e) {
             return false;
         }

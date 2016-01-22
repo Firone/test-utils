@@ -7,7 +7,7 @@
 
     <groupId>com.firone</groupId>
     <artifactId>test-utils</artifactId>
-    <version>1.9.5-SNAPSHOT</version>
+    <version>1.9.5</version>
 
     <packaging>jar</packaging>
     <name>test-utils</name>
@@ -86,7 +86,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.6.1</version>
+            <version>2.7.0</version>
         </dependency>
     </dependencies>
 
